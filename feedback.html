@@ -1,0 +1,52 @@
+cat > feedback.html <<'EOF'
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Feedback — Dvzn愛</title><link rel="stylesheet" href="css/style.css"/></head>
+<body>
+  <header class="header"><div class="logo">Dvzn愛 Store</div><nav class="nav"><a href="index.html">Início</a><a href="apps.html">Aplicativos</a><a href="cloudgaming.html">Cloud</a><a href="feedback.html" class="active">Feedback</a><div class="menu"><button>⋮</button><div class="dropdown"><a href="index.html">🏠 Início</a><a href="denunciar.html">⚠️ Denunciar</a></div></div></nav></header>
+
+  <main class="container">
+    <h2 style="text-align:center;color:var(--accent)">Feedback / Sugestões</h2>
+
+    <div style="max-width:700px;margin:10px auto">
+      <div class="form-row">
+        <input id="nome" placeholder="Seu nome (opcional)"/>
+      </div>
+      <div class="form-row">
+        <input id="email" placeholder="Seu e-mail (opcional)"/>
+      </div>
+      <div class="form-row">
+        <textarea id="mensagem" rows="6" placeholder="Escreva sua sugestão ou reporte um erro..."></textarea>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center">
+        <button class="btn" onclick="sendFeedback()">Enviar via WhatsApp</button>
+        <button class="btn" onclick="sendMail()">Enviar via E-mail</button>
+      </div>
+      <p class="small" style="text-align:center;margin-top:12px">Ou ligue / envie mensagem: <b>+1 (236) 602-5009</b></p>
+    </div>
+
+    <div style="text-align:center;margin-top:12px"><a class="btn" href="index.html">Voltar</a></div>
+  </main>
+
+<script>
+function sendFeedback(){
+  const n=document.getElementById('nome').value||'Anon';
+  const m=document.getElementById('mensagem').value||'';
+  const text=encodeURIComponent('Feedback de: '+n+'\n\n'+m);
+  // abre WhatsApp
+  window.open('https://wa.me/12366025009?text='+text,'_blank');
+}
+function sendMail(){
+  const n=document.getElementById('nome').value||'Anon';
+  const e=document.getElementById('email').value||'';
+  const m=document.getElementById('mensagem').value||'';
+  const subject=encodeURIComponent('Feedback Dvzn愛');
+  const body=encodeURIComponent('Nome: '+n+'\\nEmail: '+e+'\\n\\n'+m);
+  window.location.href='mailto:seuemail@example.com?subject='+subject+'&body='+body;
+}
+</script>
+
+  <footer class="footer">© 2025 Dvzn愛</footer>
+</body>
+</html>
+EOF

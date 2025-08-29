@@ -1,0 +1,47 @@
+cat > denunciar.html <<'EOF'
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Denunciar — Dvzn愛</title><link rel="stylesheet" href="css/style.css"/></head>
+<body>
+  <header class="header"><div class="logo">Dvzn愛 Store</div><nav class="nav"><a href="index.html">Início</a><a href="apps.html">Aplicativos</a><a href="cloudgaming.html">Cloud</a><a href="feedback.html">Feedback</a><div class="menu"><button>⋮</button><div class="dropdown"><a href="index.html">🏠 Início</a><a href="feedback.html">✉️ Feedback</a></div></div></nav></header>
+
+  <main class="container">
+    <h2 style="text-align:center;color:var(--accent)">Denunciar erro / conteúdo</h2>
+    <p class="small" style="text-align:center">Use esse formulário para denunciar conteúdo perigoso, link quebrado ou violação de direitos.</p>
+
+    <div style="max-width:700px;margin:12px auto">
+      <div class="form-row"><input id="dnome" placeholder="Seu nome (opcional)"/></div>
+      <div class="form-row"><input id="dlink" placeholder="Link/arquivo que quer denunciar"/></div>
+      <div class="form-row"><textarea id="dmotivo" rows="6" placeholder="Explique o motivo da denúncia"></textarea></div>
+      <div style="display:flex;gap:10px;justify-content:center">
+        <button class="btn" onclick="sendDenuncia()">Enviar via WhatsApp</button>
+        <button class="btn" onclick="sendDenunciaMail()">Enviar via E-mail</button>
+      </div>
+      <p class="small" style="text-align:center;margin-top:12px">Ou envie para <b>seuemail@example.com</b> ou WhatsApp <b>+1 (236) 602-5009</b></p>
+    </div>
+
+    <div style="text-align:center;margin-top:10px"><a class="btn" href="index.html">Voltar</a></div>
+  </main>
+
+<script>
+function sendDenuncia(){
+  const n=document.getElementById('dnome').value||'Anon';
+  const l=document.getElementById('dlink').value||'';
+  const m=document.getElementById('dmotivo').value||'';
+  const text=encodeURIComponent('Denúncia de: '+n+'\\nLink: '+l+'\\nMotivo: '+m);
+  window.open('https://wa.me/12366025009?text='+text,'_blank');
+}
+function sendDenunciaMail(){
+  const n=document.getElementById('dnome').value||'Anon';
+  const l=document.getElementById('dlink').value||'';
+  const m=document.getElementById('dmotivo').value||'';
+  const subject=encodeURIComponent('Denúncia Dvzn愛');
+  const body=encodeURIComponent('Nome: '+n+'\\nLink: '+l+'\\n\\nMotivo: '+m);
+  window.location.href='mailto:seuemail@example.com?subject='+subject+'&body='+body;
+}
+</script>
+
+  <footer class="footer">© 2025 Dvzn愛</footer>
+</body>
+</html>
+EOF

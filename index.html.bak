@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja 𝔻𝕧𝕫𝕟愛 - Cloud Gaming</title>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(90deg, #00ff99, #00ccff);
+    padding: 20px;
+    text-align: center;
+    color: #000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.search-box {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 60%;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
+.games-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background-color: #1e1e1e;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,255,204,0.5);
+}
+
+.game-card img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.game-card a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #00ccff;
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.game-card a:hover {
+    background-color: #00ff99;
+    color: #000;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    color: #888;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Loja 𝔻𝕧𝕫𝕟愛</h1>
+<p>Cloud Gaming | Baixe seus jogos favoritos</p>
+</header>
+
+<div class="container">
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Pesquisar jogo..." onkeyup="filterGames()">
+</div>
+
+<div class="games-list" id="gamesList">
+
+  <!-- Game 1 -->
+  <div class="game-card">
+    <img src="https://via.placeholder.com/100x100?text=Base" alt="Base">
+    <h3>Cloud Game Base</h3>
+    <a href="https://www.mediafire.com/file/wtc78xicdc2z6o9/base.apk/file" target="_blank">Baixar</a>
+  </div>
+
+  <!-- Game 2 -->
+  <div class="game-card">
+    <img src="https://via.placeholder.com/100x100?text=Base1" alt="Base1">
+    <h3>Cloud Game Base 1</h3>
+    <a href="https://www.mediafire.com/file/4selcmrrnvbmch5/base1.apk/file" target="_blank">Baixar</a>
+  </div>
+
+  <!-- Game 3 -->
+  <div class="game-card">
+    <img src="https://via.placeholder.com/100x100?text=Base2" alt="Base2">
+    <h3>Cloud Game Base 2</h3>
+    <a href="https://www.mediafire.com/file/6hsw99y4v6dg9l6/base2.apk/file" target="_blank">Baixar</a>
+  </div>
+
+  <!-- Game 4 -->
+  <div class="game-card">
+    <img src="https://via.placeholder.com/100x100?text=Base3" alt="Base3">
+    <h3>Cloud Game Base 3</h3>
+    <a href="https://www.mediafire.com/file/hvrgewvmggcz4p0/base3.apk/file" target="_blank">Baixar</a>
+  </div>
+
+</div>
+</div>
+
+<footer>
+<p>© 2025 𝔻𝕧𝕫𝕟愛 - Todos os direitos reservados</p>
+</footer>
+
+<script>
+function filterGames() {
+  const input = document.getElementById('searchInput');
+  const filter = input.value.toLowerCase();
+  const games = document.getElementById('gamesList').getElementsByClassName('game-card');
+
+  for (let i = 0; i < games.length; i++) {
+    let title = games[i].getElementsByTagName("h3")[0].innerText;
+    if (title.toLowerCase().indexOf(filter) > -1) {
+      games[i].style.display = "";
+    } else {
+      games[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
