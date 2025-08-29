@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loja 𝔻𝕧𝕫𝕟愛 - Cloud Gaming & Apps</title>
+<title>Loja 𝔻𝕧𝕫𝕟愛 - Cloud Gaming e Apps</title>
 <style>
 body {
     font-family: 'Arial', sans-serif;
@@ -12,52 +12,25 @@ body {
     margin: 0;
     padding: 0;
 }
-
 header {
     background: linear-gradient(90deg, #00ff99, #00ccff);
     padding: 20px;
     text-align: center;
     color: #000;
 }
-
 header h1 {
     margin: 0;
     font-size: 2em;
 }
-
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 10px;
-}
-
-nav a {
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 15px;
-    border-radius: 10px;
-    background-color: rgba(255,255,255,0.2);
-    transition: 0.3s;
-}
-
-nav a:hover {
-    background-color: #00ff99;
-    color: #000;
-}
-
 .container {
     max-width: 1000px;
     margin: 20px auto;
     padding: 0 20px;
 }
-
 .search-box {
     margin-bottom: 20px;
     text-align: center;
 }
-
 input[type="text"] {
     width: 60%;
     padding: 10px 15px;
@@ -66,43 +39,26 @@ input[type="text"] {
     outline: none;
     font-size: 1em;
 }
-
-.category {
-    margin-top: 40px;
-}
-
-.category h2 {
-    border-bottom: 2px solid #00ccff;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
-
 .games-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
 }
-
 .game-card {
     background-color: #1e1e1e;
     border-radius: 15px;
     padding: 15px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
 }
-
 .game-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 20px rgba(0,255,204,0.5);
 }
-
 .game-card img {
     max-width: 100px;
     margin-bottom: 10px;
-    border-radius: 10px;
 }
-
 .game-card a {
     display: inline-block;
     margin-top: 10px;
@@ -113,24 +69,22 @@ input[type="text"] {
     border-radius: 10px;
     transition: 0.3s;
 }
-
 .game-card a:hover {
     background-color: #00ff99;
     color: #000;
 }
-
-.feedback {
-    margin-top: 20px;
-    font-size: 0.9em;
-    text-align: center;
-    color: #888;
-}
-
 footer {
     text-align: center;
     padding: 20px;
     margin-top: 30px;
     color: #888;
+}
+.category-title {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #00ccff;
+    display: inline-block;
 }
 </style>
 </head>
@@ -138,129 +92,132 @@ footer {
 
 <header>
 <h1>Loja 𝔻𝕧𝕫𝕟愛</h1>
-<p>Cloud Gaming & Apps | Baixe seus favoritos</p>
-<nav>
-    <a href="#apps">Aplicativos</a>
-    <a href="#games">Jogos</a>
-    <a href="#cloud">Cloud Gaming</a>
-    <a href="#cinema">Cinema</a>
-    <a href="#info">Sobre Nós</a>
-    <a href="#feedback">Feedback</a>
-</nav>
+<p>Cloud Gaming | Apps | Jogos | Cinema</p>
 </header>
 
 <div class="container">
 <div class="search-box">
-<input type="text" id="searchInput" placeholder="Pesquisar..." onkeyup="filterGames()">
-</div>
-
-<!-- Aplicativos -->
-<div class="category" id="apps">
-<h2>Aplicativos</h2>
-<div class="games-list" id="appsList">
-  <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Whatsapp+GB" alt="Whatsapp GB">
-    <h3>Whatsapp GB</h3>
-    <a href="https://fir3.net/JykkN" target="_blank">Baixar</a>
-  </div>
-  <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Insta+PRO" alt="Insta PRO">
-    <h3>Insta PRO</h3>
-    <a href="https://fir3.net/k0Iq" target="_blank">Baixar</a>
-  </div>
-  <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Termux" alt="Termux">
-    <h3>Termux</h3>
-    <a href="https://4br.me/P3xF2r3S3R" target="_blank">Baixar</a>
-  </div>
-  <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=SnapTube" alt="SnapTube">
-    <h3>SnapTube</h3>
-    <a href="https://fir3.net/iPIepGG" target="_blank">Baixar</a>
-  </div>
-</div>
-</div>
-
-<!-- Jogos -->
-<div class="category" id="games">
-<h2>Jogos</h2>
-<div class="games-list" id="gamesList">
-  <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Minecraft" alt="Minecraft Free">
-    <h3>Minecraft Free</h3>
-    <a href="https://fir3.net/RzZ2deAe" target="_blank">Baixar</a>
-  </div>
-  <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Among+Us" alt="Among Us mod menu">
-    <h3>Among Us mod menu</h3>
-    <a href="https://fir3.net/tIMyW" target="_blank">Baixar</a>
-  </div>
-  <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Roblox" alt="Roblox mod menu">
-    <h3>Roblox mod menu</h3>
-    <a href="https://fir3.net/ArGb" target="_blank">Baixar</a>
-  </div>
-</div>
+<input type="text" id="searchInput" placeholder="Pesquisar jogo ou app..." onkeyup="filterGames()">
 </div>
 
 <!-- Cloud Gaming -->
-<div class="category" id="cloud">
-<h2>Cloud Gaming</h2>
-<div class="games-list" id="cloudList">
+<h2 class="category-title">Cloud Gaming</h2>
+<div class="games-list" id="gamesList">
+
   <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Cloud1" alt="Cloud Game Base">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Game_icon.svg/1200px-Game_icon.svg.png" alt="Cloud Game Base">
     <h3>Cloud Game Base</h3>
     <a href="https://fir3.net/BXvkZT" target="_blank">Baixar</a>
   </div>
+
   <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Cloud2" alt="Cloud Game Base1">
-    <h3>Cloud Game Base1</h3>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Game_icon.svg/1200px-Game_icon.svg.png" alt="Cloud Game Base 1">
+    <h3>Cloud Game Base 1</h3>
     <a href="https://fir3.net/UneCW" target="_blank">Baixar</a>
   </div>
+
   <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Cloud3" alt="Cloud Game Base2">
-    <h3>Cloud Game Base2</h3>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Game_icon.svg/1200px-Game_icon.svg.png" alt="Cloud Game Base 2">
+    <h3>Cloud Game Base 2</h3>
     <a href="https://fir3.net/FX5KsH" target="_blank">Baixar</a>
   </div>
+
   <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Cloud4" alt="Cloud Game Base3">
-    <h3>Cloud Game Base3</h3>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Game_icon.svg/1200px-Game_icon.svg.png" alt="Cloud Game Base 3">
+    <h3>Cloud Game Base 3</h3>
     <a href="https://fir3.net/z4XKn0de2t" target="_blank">Baixar</a>
   </div>
+
 </div>
+
+<!-- Aplicativos -->
+<h2 class="category-title">Aplicativos</h2>
+<div class="games-list">
+
+  <div class="game-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp GB">
+    <h3>WhatsApp GB</h3>
+    <a href="https://fir3.net/JykkN" target="_blank">Baixar</a>
+  </div>
+
+  <div class="game-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" alt="Instagram PRO">
+    <h3>Instagram PRO</h3>
+    <a href="https://fir3.net/k0Iq" target="_blank">Baixar</a>
+  </div>
+
+  <div class="game-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Termux_logo.png" alt="Termux">
+    <h3>Termux</h3>
+    <a href="https://4br.me/P3xF2r3S3R" target="_blank">Baixar</a>
+  </div>
+
+  <div class="game-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Spotify_logo_with_icon.svg/1024px-Spotify_logo_with_icon.svg.png" alt="Spotify Premium">
+    <h3>Spotify Premium</h3>
+    <a href="https://4br.me/8ym7b" target="_blank">Baixar</a>
+  </div>
+
+  <div class="game-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Youtube_logo_icon_2013.svg" alt="YouTube sem Ads">
+    <h3>YouTube sem ADS</h3>
+    <a href="https://4br.me/PvrN89nr" target="_blank">Baixar</a>
+  </div>
+
+  <div class="game-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Minecraft_cover.png" alt="Minecraft Free">
+    <h3>Minecraft Free</h3>
+    <a href="https://fir3.net/RzZ2deAe" target="_blank">Baixar</a>
+  </div>
+
+  <div class="game-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Roblox_Logo.svg" alt="Roblox mod menu">
+    <h3>Roblox mod menu</h3>
+    <a href="https://fir3.net/ArGb" target="_blank">Baixar</a>
+  </div>
+
+</div>
+
+<!-- Jogos -->
+<h2 class="category-title">Jogos</h2>
+<div class="games-list">
+
+  <div class="game-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Among_Us_icon.png" alt="Among Us mod menu">
+    <h3>Among Us mod menu</h3>
+    <a href="https://fir3.net/tIMyW" target="_blank">Baixar</a>
+  </div>
+
+  <div class="game-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Bully_cover.jpg" alt="Bully mod menu">
+    <h3>Bully mod menu</h3>
+    <a href="https://fir3.net/jYQAafM" target="_blank">Baixar</a>
+  </div>
+
+  <div class="game-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Minimilia_logo.png" alt="Minimilitia">
+    <h3>Minimilitia</h3>
+    <a href="https://4br.me/5vhoErH" target="_blank">Baixar</a>
+  </div>
+
 </div>
 
 <!-- Cinema -->
-<div class="category" id="cinema">
-<h2>Cinema</h2>
-<div class="games-list" id="cinemaList">
+<h2 class="category-title">Cinema</h2>
+<div class="games-list">
+
   <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=TLN+" alt="TLN+ SEM ADS">
-    <h3>TLN+ SEM ADS</h3>
-    <a href="https://fir3.net/hiX54fxQ" target="_blank">Baixar</a>
-  </div>
-  <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Cinegato" alt="Cinegato">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Cinegato_logo.png" alt="Cinegato">
     <h3>Cinegato</h3>
     <a href="https://fir3.net/edU8" target="_blank">Baixar</a>
   </div>
-</div>
-</div>
 
-<!-- Informações -->
-<div class="category" id="info">
-<h2>Sobre Nós</h2>
-<p>Informações: Somos uma comunidade que disponibiliza APKs, MODs, Arquivos, de fácil acesso e com segurança.<br>
-Não recomendamos a utilização de aplicativos de terceiros, procure sempre usar softwares oficiais e legais de seu desenvolvedor!<br>
-Não nos responsabilizamos por qualquer utilização indevida e ilegal.<br>
-O site sempre é atualizado de 2 em 2 meses para otimização de segurança e novas versões dos aplicativos.</p>
-<p>Para denunciar erros ou enviar feedback: <a href="#feedback">Clique aqui</a></p>
-</div>
+  <div class="game-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/TLN_plus_logo.png" alt="TLN+ SEM ADS">
+    <h3>TLN+ SEM ADS</h3>
+    <a href="https://fir3.net/hiX54fxQ" target="_blank">Baixar</a>
+  </div>
 
-<!-- Feedback -->
-<div class="category" id="feedback">
-<h2>Feedback</h2>
-<p>Não encontrou o que queria? Dê uma sugestão! <br>+1 (236) 602-5009</p>
 </div>
 
 <footer>
@@ -271,25 +228,15 @@ O site sempre é atualizado de 2 em 2 meses para otimização de segurança e no
 function filterGames() {
   const input = document.getElementById('searchInput');
   const filter = input.value.toLowerCase();
-  const allGames = document.querySelectorAll('.games-list .game-card');
-  let found = false;
+  const games = document.getElementById('gamesList').getElementsByClassName('game-card');
 
-  allGames.forEach(function(card) {
-    const title = card.getElementsByTagName("h3")[0].innerText;
-    if(title.toLowerCase().includes(filter)) {
-      card.style.display = "";
-      found = true;
+  for (let i = 0; i < games.length; i++) {
+    let title = games[i].getElementsByTagName("h3")[0].innerText;
+    if (title.toLowerCase().indexOf(filter) > -1) {
+      games[i].style.display = "";
     } else {
-      card.style.display = "none";
+      games[i].style.display = "none";
     }
-  });
-
-  // Mostrar sugestão se nada encontrado
-  const feedbackSection = document.getElementById('feedback');
-  if(!found && filter.length > 0) {
-    feedbackSection.style.display = "block";
-  } else {
-    feedbackSection.style.display = "none";
   }
 }
 </script>
