@@ -1,163 +1,290 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loja 𝔻𝕧𝕫𝕟愛 - Cloud Gaming</title>
-<style>
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background: linear-gradient(90deg, #00ff99, #00ccff);
-    padding: 20px;
-    text-align: center;
-    color: #000;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2em;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 0 20px;
-}
-
-.search-box {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-input[type="text"] {
-    width: 60%;
-    padding: 10px 15px;
-    border-radius: 25px;
-    border: none;
-    outline: none;
-    font-size: 1em;
-}
-
-.games-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.game-card {
-    background-color: #1e1e1e;
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.game-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0,255,204,0.5);
-}
-
-.game-card img {
-    max-width: 100px;
-    margin-bottom: 10px;
-}
-
-.game-card a {
-    display: inline-block;
-    margin-top: 10px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #00ccff;
-    padding: 8px 15px;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-.game-card a:hover {
-    background-color: #00ff99;
-    color: #000;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
-    color: #888;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja Dvzn愛</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 2px solid #0ff;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #0ff;
+    }
+    .menu {
+      position: relative;
+      display: inline-block;
+    }
+    .menu button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      background: #222;
+      border: 1px solid #0ff;
+      min-width: 200px;
+      z-index: 1;
+    }
+    .dropdown a {
+      display: block;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid #0ff3;
+    }
+    .dropdown a:hover {
+      background: #0ff3;
+    }
+    .menu:hover .dropdown {
+      display: block;
+    }
+    .search-box {
+      padding: 15px;
+      text-align: center;
+    }
+    .search-box input {
+      width: 80%;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #0ff;
+      background: #111;
+      color: white;
+    }
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 10px 0;
+    }
+    .categories button {
+      background: #111;
+      border: 1px solid #0ff;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .categories button:hover {
+      background: #0ff3;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: #111;
+      border: 2px solid #0ff3;
+      border-radius: 15px;
+      text-align: center;
+      padding: 15px;
+      transition: 0.3s;
+    }
+    .card:hover {
+      border-color: #0ff;
+      box-shadow: 0 0 15px #0ff;
+    }
+    .card img {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 10px;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 12px;
+      background: #0ff;
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: 0.2s;
+    }
+    .card a:hover {
+      background: white;
+    }
+    .notfound {
+      text-align: center;
+      margin: 20px;
+      color: #ccc;
+    }
+    .sobre {
+      padding: 20px;
+      background: #111;
+      border-top: 2px solid #0ff;
+      margin: 20px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="logo">Dvzn愛 Store</div>
+    <div class="menu">
+      <button>⋮</button>
+      <div class="dropdown">
+        <a href="#">🏠 Início</a>
+        <a href="#categorias">📂 Categorias</a>
+        <a href="#sobre">ℹ️ Sobre nós</a>
+        <a href="#">⚠️ Denunciar erro</a>
+        <a href="#">📑 Informações importantes</a>
+      </div>
+    </div>
+  </header>
 
-<header>
-<h1>Loja 𝔻𝕧𝕫𝕟愛</h1>
-<p>Cloud Gaming | Baixe seus jogos favoritos</p>
-</header>
-
-<div class="container">
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="Pesquisar jogo..." onkeyup="filterGames()">
-</div>
-
-<div class="games-list" id="gamesList">
-
-  <!-- Game 1 -->
-  <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Base" alt="Base">
-    <h3>Cloud Game Base</h3>
-    <a href="https://www.mediafire.com/file/wtc78xicdc2z6o9/base.apk/file" target="_blank">Baixar</a>
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Pesquisar...">
   </div>
 
-  <!-- Game 2 -->
-  <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Base1" alt="Base1">
-    <h3>Cloud Game Base 1</h3>
-    <a href="https://www.mediafire.com/file/4selcmrrnvbmch5/base1.apk/file" target="_blank">Baixar</a>
+  <div class="categories" id="categorias">
+    <button onclick="filterCategory('aplicativos')">📱 Aplicativos</button>
+    <button onclick="filterCategory('jogos')">🎮 Jogos</button>
+    <button onclick="filterCategory('cloud')">☁️ Cloud Gaming</button>
+    <button onclick="filterCategory('cinema')">🎬 Cinema</button>
+    <button onclick="filterCategory('all')">✨ Todos</button>
   </div>
 
-  <!-- Game 3 -->
-  <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Base2" alt="Base2">
-    <h3>Cloud Game Base 2</h3>
-    <a href="https://www.mediafire.com/file/6hsw99y4v6dg9l6/base2.apk/file" target="_blank">Baixar</a>
+  <div class="container" id="apps">
+    <!-- APLICATIVOS -->
+    <div class="card aplicativos">
+      <img src="https://img.icons8.com/color/96/whatsapp.png">
+      <h3>Whatsapp GB</h3>
+      <a href="https://fir3.net/JykkN">Download</a>
+    </div>
+    <div class="card aplicativos">
+      <img src="https://img.icons8.com/color/96/instagram-new.png">
+      <h3>Insta PRO</h3>
+      <a href="https://fir3.net/k0Iq">Download</a>
+    </div>
+    <div class="card aplicativos">
+      <img src="https://img.icons8.com/color/96/youtube-play.png">
+      <h3>YouTube sem ADS</h3>
+      <a href="https://4br.me/PvrN89nr">Download</a>
+    </div>
+    <div class="card aplicativos">
+      <img src="https://img.icons8.com/color/96/spotify.png">
+      <h3>Spotify Premium</h3>
+      <a href="https://4br.me/8ym7b">Download</a>
+    </div>
+    <div class="card aplicativos">
+      <img src="https://img.icons8.com/color/96/console.png">
+      <h3>Termux</h3>
+      <a href="#">Download</a>
+    </div>
+
+    <!-- JOGOS -->
+    <div class="card jogos">
+      <img src="https://img.icons8.com/color/96/minecraft.png">
+      <h3>Minecraft Free</h3>
+      <a href="https://fir3.net/RzZ2deAe">Download</a>
+    </div>
+    <div class="card jogos">
+      <img src="https://img.icons8.com/color/96/among-us.png">
+      <h3>Among Us Mod</h3>
+      <a href="https://fir3.net/tIMyW">Download</a>
+    </div>
+    <div class="card jogos">
+      <img src="https://img.icons8.com/color/96/roblox.png">
+      <h3>Roblox Mod</h3>
+      <a href="https://fir3.net/ArGb">Download</a>
+    </div>
+    <div class="card jogos">
+      <img src="https://img.icons8.com/color/96/school.png">
+      <h3>Bully Mod Menu</h3>
+      <a href="https://fir3.net/jYQAafM">Download</a>
+    </div>
+
+    <!-- CLOUD GAMING -->
+    <div class="card cloud">
+      <img src="https://img.icons8.com/color/96/cloud.png">
+      <h3>Cloudgaming CN</h3>
+      <a href="https://fir3.net/BXvkZT">Download</a>
+    </div>
+    <div class="card cloud">
+      <img src="https://img.icons8.com/color/96/cloud.png">
+      <h3>Cloudgaming Jy</h3>
+      <a href="https://4br.me/zrpYhhaiY">Download</a>
+    </div>
+
+    <!-- CINEMA -->
+    <div class="card cinema">
+      <img src="https://img.icons8.com/color/96/movie-projector.png">
+      <h3>Cinegato</h3>
+      <a href="https://fir3.net/edU8">Download</a>
+    </div>
+    <div class="card cinema">
+      <img src="https://img.icons8.com/color/96/tv.png">
+      <h3>TLN+ sem ADS</h3>
+      <a href="https://fir3.net/hiX54fxQ">Download</a>
+    </div>
   </div>
 
-  <!-- Game 4 -->
-  <div class="game-card">
-    <img src="https://via.placeholder.com/100x100?text=Base3" alt="Base3">
-    <h3>Cloud Game Base 3</h3>
-    <a href="https://www.mediafire.com/file/hvrgewvmggcz4p0/base3.apk/file" target="_blank">Baixar</a>
+  <div id="notfound" class="notfound" style="display:none;">
+    Não encontrou o que queria? Dê uma sugestão!  
+    <br><b>+1 (236) 602-5009</b>
   </div>
 
-</div>
-</div>
+  <div class="sobre" id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>
+      Informações: Somos uma comunidade que disponibiliza APKs, MODs, Arquivos, de fácil acesso e com segurança. <br><br>
+      Não recomendamos a utilização de aplicativos de terceiros, procure sempre usar softwares oficiais e legais de seu desenvolvedores! <br><br>
+      Não nos responsabilizamos por qualquer utilização indevida e ilegal. <br><br>
+      O site sempre é atualizado de 2 em 2 meses para otimização de segurança e novas versões dos aplicativos.
+    </p>
+  </div>
 
-<footer>
-<p>© 2025 𝔻𝕧𝕫𝕟愛 - Todos os direitos reservados</p>
-</footer>
+  <script>
+    const searchInput = document.getElementById('search');
+    const cards = document.querySelectorAll('.card');
+    const notfound = document.getElementById('notfound');
 
-<script>
-function filterGames() {
-  const input = document.getElementById('searchInput');
-  const filter = input.value.toLowerCase();
-  const games = document.getElementById('gamesList').getElementsByClassName('game-card');
+    searchInput.addEventListener('input', () => {
+      let value = searchInput.value.toLowerCase();
+      let visible = 0;
+      cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        if (text.includes(value)) {
+          card.style.display = 'block';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      notfound.style.display = visible === 0 ? 'block' : 'none';
+    });
 
-  for (let i = 0; i < games.length; i++) {
-    let title = games[i].getElementsByTagName("h3")[0].innerText;
-    if (title.toLowerCase().indexOf(filter) > -1) {
-      games[i].style.display = "";
-    } else {
-      games[i].style.display = "none";
+    function filterCategory(cat) {
+      cards.forEach(card => {
+        if (cat === 'all' || card.classList.contains(cat)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      notfound.style.display = 'none';
     }
-  }
-}
-</script>
-
+  </script>
 </body>
 </html>
