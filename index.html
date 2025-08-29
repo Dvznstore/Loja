@@ -1,160 +1,164 @@
-cat > index.html <<'EOF'
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Loja Dvzn愛 — Início</title>
-<link rel="stylesheet" href="css/style.css"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja Dvzn愛</title>
+<style>
+  body { font-family: Arial, sans-serif; background:#121212; color:#fff; margin:0; padding:0; }
+  header { background:#1f1f1f; padding:20px; display:flex; justify-content:space-between; align-items:center; }
+  header h1 { margin:0; color:#00f0ff; }
+  nav a { color:#fff; margin-left:15px; text-decoration:none; font-weight:bold; }
+  .search { margin:20px; text-align:center; }
+  .search input { padding:10px; width:80%; border-radius:5px; border:none; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:15px; padding:20px; }
+  .card { background:#1f1f1f; padding:15px; border-radius:10px; transition:0.3s; position:relative; }
+  .card:hover { box-shadow:0 0 15px #00f0ff; }
+  .card img { width:100%; border-radius:5px; }
+  .card h3 { margin:10px 0 5px; }
+  .card p { font-size:0.9em; color:#aaa; }
+  .card a { display:inline-block; margin-top:10px; padding:8px 12px; background:#00f0ff; color:#000; text-decoration:none; border-radius:5px; font-weight:bold; }
+  .led { width:10px; height:10px; background:#00f0ff; border-radius:50%; position:absolute; top:10px; right:10px; animation:blink 1s infinite; }
+  @keyframes blink { 0%,50%,100%{opacity:1} 25%,75%{opacity:0.1} }
+  footer { text-align:center; padding:15px; background:#1f1f1f; color:#aaa; }
+  .dropdown { position:relative; display:inline-block; }
+  .dropdown-content { display:none; position:absolute; right:0; background:#1f1f1f; min-width:220px; box-shadow:0 0 10px #000; border-radius:5px; padding:10px; z-index:1; }
+  .dropdown:hover .dropdown-content { display:block; }
+  .dropdown-content p, .dropdown-content a { color:#fff; display:block; margin:5px 0; text-decoration:none; }
+  .categoria { margin:20px 0; font-size:1.2em; color:#00f0ff; }
+</style>
 </head>
 <body>
-  <header class="header">
-    <div class="logo">Dvzn愛 Store</div>
-    <nav class="nav">
-      <a href="index.html" class="active">Início</a>
-      <a href="apps.html">Aplicativos</a>
-      <a href="cloudgaming.html">Cloud Gaming</a>
-      <a href="apps.html#jogos">Jogos</a>
-      <a href="feedback.html">Feedback</a>
-      <div class="menu">
-        <button aria-label="menu">⋮</button>
-        <div class="dropdown">
-          <a href="index.html">🏠 Início</a>
-          <a href="apps.html">📂 Aplicativos</a>
-          <a href="cloudgaming.html">☁️ Cloud Gaming</a>
-          <a href="feedback.html">✉️ Feedback</a>
-          <a href="denunciar.html">⚠️ Denunciar erro</a>
-          <a href="index.html#sobre">ℹ️ Sobre nós</a>
-        </div>
+
+<header>
+  <h1>Dvzn愛 Loja</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <div class="dropdown">
+      <a href="#">☰ Mais</a>
+      <div class="dropdown-content">
+        <p><strong>Sobre Nós</strong></p>
+        <p>Informações: Somos uma comunidade que disponibiliza APKs, MODs, Arquivos, de fácil acesso e com segurança. Não recomendamos usar apps de terceiros, procure sempre softwares oficiais e legais. O site é atualizado de 2 em 2 meses para otimização.</p>
+        <a href="#denunciar">Denunciar Erro</a>
+        <a href="#info">Informações Importantes</a>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
-  <main class="container">
-    <section class="search">
-      <input id="search" placeholder="Pesquisar app, jogo, ou categoria..." />
-    </section>
+<div class="search">
+  <input type="text" id="search" placeholder="Pesquisar apps, jogos, cloudgaming..." onkeyup="filtrarApps()">
+</div>
 
-    <section class="categories">
-      <button class="cat-btn" onclick="filterCategory('all')">✨ Todos</button>
-      <button class="cat-btn" onclick="filterCategory('aplicativos')">📱 Aplicativos</button>
-      <button class="cat-btn" onclick="filterCategory('jogos')">🎮 Jogos</button>
-      <button class="cat-btn" onclick="filterCategory('cloud')">☁️ Cloud Gaming</button>
-      <button class="cat-btn" onclick="filterCategory('cinema')">🎬 Cinema</button>
-    </section>
+<div id="apps-container" class="grid">
 
-    <section id="cards" class="grid">
-      <!-- Exemplos: duplicar / editar conforme for adicionando -->
-      <!-- Apps: -->
-      <div class="card aplicativos">
-        <img src="https://img.icons8.com/color/96/whatsapp.png" alt="Whatsapp GB">
-        <h3>Whatsapp GB</h3>
-        <a class="btn" href="https://fir3.net/JykkN" target="_blank">Download</a>
-      </div>
+  <div class="categoria">Cloud Gaming Chinês</div>
+  <div class="card">
+    <div class="led"></div>
+    <img src="img/cloud1.png" alt="Cloudgaming 1">
+    <h3>Cloudgaming 1</h3>
+    <p>Jogue qualquer jogo pelo celular!</p>
+    <a href="https://fir3.net/BXvkZT" target="_blank">Baixar</a>
+  </div>
+  <div class="card">
+    <div class="led"></div>
+    <img src="img/cloud2.png" alt="Cloudgaming 2">
+    <h3>Cloudgaming 2</h3>
+    <p>Clássico cloud gaming chinês.</p>
+    <a href="https://fir3.net/UneCW" target="_blank">Baixar</a>
+  </div>
+  <div class="card">
+    <div class="led"></div>
+    <img src="img/cloud3.png" alt="Cloudgaming 3">
+    <h3>Cloudgaming 3</h3>
+    <p>Experimente o melhor do cloud gaming.</p>
+    <a href="https://fir3.net/FX5KsH" target="_blank">Baixar</a>
+  </div>
+  <div class="card">
+    <div class="led"></div>
+    <img src="img/cloud4.png" alt="Cloudgaming 4">
+    <h3>Cloudgaming 4</h3>
+    <p>Rápido e fácil de jogar!</p>
+    <a href="https://fir3.net/z4XKn0de2t" target="_blank">Baixar</a>
+  </div>
 
-      <div class="card aplicativos">
-        <img src="https://img.icons8.com/color/96/instagram-new.png" alt="Insta PRO">
-        <h3>Insta PRO</h3>
-        <a class="btn" href="https://fir3.net/k0Iq" target="_blank">Download</a>
-      </div>
+  <div class="categoria">Aplicativos</div>
+  <div class="card">
+    <div class="led"></div>
+    <img src="img/whatsapp.png" alt="Whatsapp GB">
+    <h3>Whatsapp GB</h3>
+    <p>App modificado com mais funções.</p>
+    <a href="https://fir3.net/JykkN" target="_blank">Baixar</a>
+  </div>
+  <div class="card">
+    <div class="led"></div>
+    <img src="img/insta.png" alt="Insta PRO">
+    <h3>Insta PRO</h3>
+    <p>Instagram modificado com recursos extras.</p>
+    <a href="https://fir3.net/k0Iq" target="_blank">Baixar</a>
+  </div>
 
-      <!-- Jogos -->
-      <div class="card jogos">
-        <img src="https://img.icons8.com/color/96/minecraft.png" alt="Minecraft">
-        <h3>Minecraft Free</h3>
-        <a class="btn" href="https://fir3.net/RzZ2deAe" target="_blank">Download</a>
-      </div>
+  <div class="categoria">Jogos</div>
+  <div class="card">
+    <div class="led"></div>
+    <img src="img/minecraft.png" alt="Minecraft Free">
+    <h3>Minecraft Free</h3>
+    <p>Versão gratuita do Minecraft.</p>
+    <a href="https://fir3.net/RzZ2deAe" target="_blank">Baixar</a>
+  </div>
+  <div class="card">
+    <div class="led"></div>
+    <img src="img/amongus.png" alt="Among Us Mod">
+    <h3>Among Us Mod</h3>
+    <p>Mod menu para Among Us.</p>
+    <a href="https://fir3.net/tIMyW" target="_blank">Baixar</a>
+  </div>
 
-      <div class="card jogos">
-        <img src="https://img.icons8.com/color/96/among-us.png" alt="Among Us">
-        <h3>Among Us Mod</h3>
-        <a class="btn" href="https://fir3.net/tIMyW" target="_blank">Download</a>
-      </div>
+  <div class="categoria">Cinema</div>
+  <div class="card">
+    <div class="led"></div>
+    <img src="img/cinegato.png" alt="Cinegato">
+    <h3>Cinegato</h3>
+    <p>Filmes e séries grátis.</p>
+    <a href="https://fir3.net/edU8" target="_blank">Baixar</a>
+  </div>
+  <div class="card">
+    <div class="led"></div>
+    <img src="img/tlnplus.png" alt="TLN+">
+    <h3>TLN+ SEM ADS</h3>
+    <p>Assista sem propagandas.</p>
+    <a href="https://fir3.net/hiX54fxQ" target="_blank">Baixar</a>
+  </div>
 
-      <!-- Cinema -->
-      <div class="card cinema">
-        <img src="https://img.icons8.com/color/96/movie-projector.png" alt="Cinegato">
-        <h3>Cinegato</h3>
-        <a class="btn" href="https://fir3.net/edU8" target="_blank">Download</a>
-      </div>
+</div>
 
-      <div class="card cinema">
-        <img src="https://img.icons8.com/color/96/tv.png" alt="TLN">
-        <h3>TLN+ sem ADS</h3>
-        <a class="btn" href="https://fir3.net/hiX54fxQ" target="_blank">Download</a>
-      </div>
-
-      <!-- Cloud - exemplo curto, página dedicada terá TODOS -->
-      <div class="card cloud">
-        <img src="https://img.icons8.com/color/96/cloud.png" alt="Cloud">
-        <h3>Cloudgaming CN</h3>
-        <a class="btn" href="cloudgaming.html">Abrir</a>
-      </div>
-    </section>
-
-    <div id="notfound" class="notfound">Não encontrou o que queria? Dê uma sugestão!<br><b>+1 (236) 602-5009</b></div>
-
-    <section id="sobre" class="sobre">
-      <h2>Sobre Nós</h2>
-      <p>Informações: Somos uma comunidade que disponibiliza APKs, MODs, Arquivos, de fácil acesso e com segurança.<br><br>
-      Não recomendamos a utilização de aplicativos de terceiros, procure sempre usar softwares oficiais e legais de seu desenvolvedores!<br><br>
-      Não nos responsabilizamos por qualquer utilização indevida e ilegal.<br><br>
-      O site sempre é atualizado de 2 em 2 meses para otimização de segurança e novas versões dos aplicativos.</p>
-    </section>
-  </main>
-
-  <footer class="footer">© 2025 Dvzn愛 - Todos os direitos reservados</footer>
+<footer>
+  &copy; 2025 Dvzn愛 Loja | Não nos responsabilizamos por uso indevido.
+</footer>
 
 <script>
-const search = document.getElementById('search');
-const cards = Array.from(document.querySelectorAll('.card'));
-const notfound = document.getElementById('notfound');
+function filtrarApps() {
+  let input = document.getElementById('search').value.toLowerCase();
+  let cards = document.querySelectorAll('.card');
+  let encontrou = false;
 
-search.addEventListener('input', ()=> {
-  const q = search.value.toLowerCase().trim();
-  let visible = 0;
-  cards.forEach(c=>{
-    const text = c.innerText.toLowerCase();
-    if(q==='' || text.indexOf(q) !== -1){
-      c.style.display='flex';
-      visible++;
-    } else c.style.display='none';
+  cards.forEach(card => {
+    let nome = card.querySelector('h3').innerText.toLowerCase();
+    if (nome.includes(input)) {
+      card.style.display = '';
+      encontrou = true;
+    } else {
+      card.style.display = 'none';
+    }
   });
-  notfound.style.display = visible===0 ? 'block':'none';
-});
 
-function filterCategory(cat){
-  let visible = 0;
-  cards.forEach(c=>{
-    if(cat==='all' || c.classList.contains(cat)){
-      c.style.display='flex'; visible++;
-    } else c.style.display='none';
-  });
-  notfound.style.display = visible===0 ? 'block':'none';
+  if (!encontrou) {
+    document.getElementById('apps-container').innerHTML += `<p style="color:#f00; text-align:center; margin-top:20px;">
+      Não encontrou o que queria? Dê uma sugestão! +1 (236) 602-5009
+    </p>`;
+  }
 }
 </script>
+
 </body>
 </html>
-EOF
-<script>
-  async function carregarApps() {
-    const response = await fetch("apps.json");
-    const apps = await response.json();
-
-    const container = document.getElementById("apps-container");
-    container.innerHTML = "";
-
-    apps.forEach(app => {
-      container.innerHTML += `
-        <div class="card">
-          <img src="${app.imagem}" alt="${app.nome}">
-          <h3>${app.nome}</h3>
-          <p>${app.descricao}</p>
-          <a href="${app.link}" target="_blank">Baixar</a>
-        </div>
-      `;
-    });
-  }
-
-  carregarApps();
-</script>
