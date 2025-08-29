@@ -5,158 +5,295 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loja Dvzn愛</title>
 <style>
-  body { font-family: Arial, sans-serif; background:#121212; color:#fff; margin:0; padding:0; }
-  header { background:#1f1f1f; padding:20px; display:flex; justify-content:space-between; align-items:center; }
-  header h1 { margin:0; color:#00f0ff; }
-  nav a { color:#fff; margin-left:15px; text-decoration:none; font-weight:bold; }
-  .search { margin:20px; text-align:center; }
-  .search input { padding:10px; width:80%; border-radius:5px; border:none; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:15px; padding:20px; }
-  .card { background:#1f1f1f; padding:15px; border-radius:10px; transition:0.3s; position:relative; }
-  .card:hover { box-shadow:0 0 15px #00f0ff; }
-  .card img { width:100%; border-radius:5px; }
-  .card h3 { margin:10px 0 5px; }
-  .card p { font-size:0.9em; color:#aaa; }
-  .card a { display:inline-block; margin-top:10px; padding:8px 12px; background:#00f0ff; color:#000; text-decoration:none; border-radius:5px; font-weight:bold; }
-  .led { width:10px; height:10px; background:#00f0ff; border-radius:50%; position:absolute; top:10px; right:10px; animation:blink 1s infinite; }
-  @keyframes blink { 0%,50%,100%{opacity:1} 25%,75%{opacity:0.1} }
-  footer { text-align:center; padding:15px; background:#1f1f1f; color:#aaa; }
-  .dropdown { position:relative; display:inline-block; }
-  .dropdown-content { display:none; position:absolute; right:0; background:#1f1f1f; min-width:220px; box-shadow:0 0 10px #000; border-radius:5px; padding:10px; z-index:1; }
-  .dropdown:hover .dropdown-content { display:block; }
-  .dropdown-content p, .dropdown-content a { color:#fff; display:block; margin:5px 0; text-decoration:none; }
-  .categoria { margin:20px 0; font-size:1.2em; color:#00f0ff; }
+    body {
+        font-family: Arial, sans-serif;
+        background: #1e1e1e;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background: #121212;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #0af;
+    }
+    header h1 {
+        margin: 0;
+        color: #0af;
+        font-size: 24px;
+    }
+    nav ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul li {
+        margin-left: 20px;
+        cursor: pointer;
+        position: relative;
+    }
+    nav ul li:hover .dropdown {
+        display: block;
+    }
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 30px;
+        left: 0;
+        background: #222;
+        border: 1px solid #0af;
+        padding: 10px;
+        z-index: 100;
+    }
+    .dropdown a {
+        color: #0af;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 5px;
+    }
+    .search-bar {
+        margin: 20px;
+        text-align: center;
+    }
+    .search-bar input {
+        padding: 10px;
+        width: 60%;
+        border-radius: 5px;
+        border: 1px solid #0af;
+        background: #121212;
+        color: #fff;
+    }
+    .search-bar button {
+        padding: 10px;
+        border: none;
+        background: #0af;
+        color: #000;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .categories {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    .categories button {
+        margin: 0 10px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background: #0af;
+        color: #000;
+        cursor: pointer;
+    }
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card {
+        background: #222;
+        border: 2px solid #0af;
+        border-radius: 10px;
+        margin: 15px;
+        width: 180px;
+        text-align: center;
+        padding: 10px;
+        transition: transform 0.2s;
+        position: relative;
+    }
+    .card:hover {
+        transform: scale(1.05);
+    }
+    .card img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+    .led {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #0af;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        animation: blink 1s infinite;
+    }
+    @keyframes blink {
+        0%, 50%, 100% { opacity: 1; }
+        25%, 75% { opacity: 0; }
+    }
+    footer {
+        background: #121212;
+        text-align: center;
+        padding: 15px;
+        border-top: 2px solid #0af;
+        margin-top: 20px;
+    }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Dvzn愛 Loja</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <div class="dropdown">
-      <a href="#">☰ Mais</a>
-      <div class="dropdown-content">
-        <p><strong>Sobre Nós</strong></p>
-        <p>Informações: Somos uma comunidade que disponibiliza APKs, MODs, Arquivos, de fácil acesso e com segurança. Não recomendamos usar apps de terceiros, procure sempre softwares oficiais e legais. O site é atualizado de 2 em 2 meses para otimização.</p>
-        <a href="#denunciar">Denunciar Erro</a>
-        <a href="#info">Informações Importantes</a>
-      </div>
-    </div>
-  </nav>
+    <h1>Loja Dvzn愛</h1>
+    <nav>
+        <ul>
+            <li>Mais
+                <div class="dropdown">
+                    <a href="#sobre">Sobre Nós</a>
+                    <a href="#denunciar">Denunciar Erro</a>
+                    <a href="#info">Informações Importantes</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
 </header>
 
-<div class="search">
-  <input type="text" id="search" placeholder="Pesquisar apps, jogos, cloudgaming..." onkeyup="filtrarApps()">
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Pesquisar aplicativos...">
+    <button onclick="search()">Buscar</button>
 </div>
 
-<div id="apps-container" class="grid">
+<div class="categories">
+    <button onclick="filterCategory('all')">Todos</button>
+    <button onclick="filterCategory('apps')">Aplicativos</button>
+    <button onclick="filterCategory('games')">Jogos</button>
+    <button onclick="filterCategory('cloud')">Cloud Gaming</button>
+    <button onclick="filterCategory('cinema')">Cinema</button>
+</div>
 
-  <div class="categoria">Cloud Gaming Chinês</div>
-  <div class="card">
-    <div class="led"></div>
-    <img src="img/cloud1.png" alt="Cloudgaming 1">
-    <h3>Cloudgaming 1</h3>
-    <p>Jogue qualquer jogo pelo celular!</p>
-    <a href="https://fir3.net/BXvkZT" target="_blank">Baixar</a>
-  </div>
-  <div class="card">
-    <div class="led"></div>
-    <img src="img/cloud2.png" alt="Cloudgaming 2">
-    <h3>Cloudgaming 2</h3>
-    <p>Clássico cloud gaming chinês.</p>
-    <a href="https://fir3.net/UneCW" target="_blank">Baixar</a>
-  </div>
-  <div class="card">
-    <div class="led"></div>
-    <img src="img/cloud3.png" alt="Cloudgaming 3">
-    <h3>Cloudgaming 3</h3>
-    <p>Experimente o melhor do cloud gaming.</p>
-    <a href="https://fir3.net/FX5KsH" target="_blank">Baixar</a>
-  </div>
-  <div class="card">
-    <div class="led"></div>
-    <img src="img/cloud4.png" alt="Cloudgaming 4">
-    <h3>Cloudgaming 4</h3>
-    <p>Rápido e fácil de jogar!</p>
-    <a href="https://fir3.net/z4XKn0de2t" target="_blank">Baixar</a>
-  </div>
+<div class="cards" id="cardsContainer">
 
-  <div class="categoria">Aplicativos</div>
-  <div class="card">
-    <div class="led"></div>
-    <img src="img/whatsapp.png" alt="Whatsapp GB">
-    <h3>Whatsapp GB</h3>
-    <p>App modificado com mais funções.</p>
-    <a href="https://fir3.net/JykkN" target="_blank">Baixar</a>
-  </div>
-  <div class="card">
-    <div class="led"></div>
-    <img src="img/insta.png" alt="Insta PRO">
-    <h3>Insta PRO</h3>
-    <p>Instagram modificado com recursos extras.</p>
-    <a href="https://fir3.net/k0Iq" target="_blank">Baixar</a>
-  </div>
+    <!-- Aplicativos -->
+    <div class="card" data-category="apps">
+        <div class="led"></div>
+        <img src="https://via.placeholder.com/100x100.png?text=WhatsApp+GB" alt="WhatsApp GB">
+        <h3>Whatsapp GB</h3>
+        <a href="https://fir3.net/JykkN" target="_blank">Baixar</a>
+    </div>
 
-  <div class="categoria">Jogos</div>
-  <div class="card">
-    <div class="led"></div>
-    <img src="img/minecraft.png" alt="Minecraft Free">
-    <h3>Minecraft Free</h3>
-    <p>Versão gratuita do Minecraft.</p>
-    <a href="https://fir3.net/RzZ2deAe" target="_blank">Baixar</a>
-  </div>
-  <div class="card">
-    <div class="led"></div>
-    <img src="img/amongus.png" alt="Among Us Mod">
-    <h3>Among Us Mod</h3>
-    <p>Mod menu para Among Us.</p>
-    <a href="https://fir3.net/tIMyW" target="_blank">Baixar</a>
-  </div>
+    <div class="card" data-category="apps">
+        <div class="led"></div>
+        <img src="https://via.placeholder.com/100x100.png?text=Insta+PRO" alt="Insta PRO">
+        <h3>Insta PRO</h3>
+        <a href="https://fir3.net/k0Iq" target="_blank">Baixar</a>
+    </div>
 
-  <div class="categoria">Cinema</div>
-  <div class="card">
-    <div class="led"></div>
-    <img src="img/cinegato.png" alt="Cinegato">
-    <h3>Cinegato</h3>
-    <p>Filmes e séries grátis.</p>
-    <a href="https://fir3.net/edU8" target="_blank">Baixar</a>
-  </div>
-  <div class="card">
-    <div class="led"></div>
-    <img src="img/tlnplus.png" alt="TLN+">
-    <h3>TLN+ SEM ADS</h3>
-    <p>Assista sem propagandas.</p>
-    <a href="https://fir3.net/hiX54fxQ" target="_blank">Baixar</a>
-  </div>
+    <div class="card" data-category="apps">
+        <div class="led"></div>
+        <img src="https://via.placeholder.com/100x100.png?text=Termux" alt="Termux">
+        <h3>Termux</h3>
+        <a href="https://4br.me/P3xF2r3S3R" target="_blank">Baixar</a>
+    </div>
 
+    <!-- Jogos -->
+    <div class="card" data-category="games">
+        <div class="led"></div>
+        <img src="https://via.placeholder.com/100x100.png?text=Minecraft+Free" alt="Minecraft Free">
+        <h3>Minecraft Free</h3>
+        <a href="https://fir3.net/RzZ2deAe" target="_blank">Baixar</a>
+    </div>
+
+    <div class="card" data-category="games">
+        <div class="led"></div>
+        <img src="https://via.placeholder.com/100x100.png?text=Among+Us+Mod" alt="Among Us Mod">
+        <h3>Among Us Mod Menu</h3>
+        <a href="https://fir3.net/tIMyW" target="_blank">Baixar</a>
+    </div>
+
+    <div class="card" data-category="games">
+        <div class="led"></div>
+        <img src="https://via.placeholder.com/100x100.png?text=Roblox+Mod" alt="Roblox Mod">
+        <h3>Roblox Mod Menu</h3>
+        <a href="https://fir3.net/ArGb" target="_blank">Baixar</a>
+    </div>
+
+    <!-- Cloud Gaming -->
+    <div class="card" data-category="cloud">
+        <div class="led"></div>
+        <img src="https://via.placeholder.com/100x100.png?text=CloudGaming+1" alt="Cloud Gaming 1">
+        <h3>Cloudgaming 1</h3>
+        <a href="https://fir3.net/BXvkZT" target="_blank">Baixar</a>
+    </div>
+
+    <div class="card" data-category="cloud">
+        <div class="led"></div>
+        <img src="https://via.placeholder.com/100x100.png?text=CloudGaming+2" alt="Cloud Gaming 2">
+        <h3>Cloudgaming 2</h3>
+        <a href="https://fir3.net/UneCW" target="_blank">Baixar</a>
+    </div>
+
+    <div class="card" data-category="cloud">
+        <div class="led"></div>
+        <img src="https://via.placeholder.com/100x100.png?text=CloudGaming+3" alt="Cloud Gaming 3">
+        <h3>Cloudgaming 3</h3>
+        <a href="https://fir3.net/FX5KsH" target="_blank">Baixar</a>
+    </div>
+
+    <div class="card" data-category="cloud">
+        <div class="led"></div>
+        <img src="https://via.placeholder.com/100x100.png?text=CloudGaming+4" alt="Cloud Gaming 4">
+        <h3>Cloudgaming 4</h3>
+        <a href="https://fir3.net/z4XKn0de2t" target="_blank">Baixar</a>
+    </div>
+
+    <!-- Cinema -->
+    <div class="card" data-category="cinema">
+        <div class="led"></div>
+        <img src="https://via.placeholder.com/100x100.png?text=Cinegato" alt="Cinegato">
+        <h3>Cinegato</h3>
+        <a href="https://fir3.net/edU8" target="_blank">Baixar</a>
+    </div>
+
+    <div class="card" data-category="cinema">
+        <div class="led"></div>
+        <img src="https://via.placeholder.com/100x100.png?text=TLN+" alt="TLN+">
+        <h3>TLN+ SEM ADS</h3>
+        <a href="https://fir3.net/hiX54fxQ" target="_blank">Baixar</a>
+    </div>
+
+</div>
+
+<div id="notFound" style="text-align:center; display:none; margin-top:20px;">
+    Não encontrou o que queria? Dê uma sugestão! <br>
+    +1 (236) 602-5009
 </div>
 
 <footer>
-  &copy; 2025 Dvzn愛 Loja | Não nos responsabilizamos por uso indevido.
+    © 2025 Dvzn愛 - Todos os direitos reservados
 </footer>
 
 <script>
-function filtrarApps() {
-  let input = document.getElementById('search').value.toLowerCase();
-  let cards = document.querySelectorAll('.card');
-  let encontrou = false;
+function filterCategory(cat) {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        if(cat === 'all' || card.getAttribute('data-category') === cat) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    document.getElementById('notFound').style.display = 'none';
+}
 
-  cards.forEach(card => {
-    let nome = card.querySelector('h3').innerText.toLowerCase();
-    if (nome.includes(input)) {
-      card.style.display = '';
-      encontrou = true;
-    } else {
-      card.style.display = 'none';
-    }
-  });
-
-  if (!encontrou) {
-    document.getElementById('apps-container').innerHTML += `<p style="color:#f00; text-align:center; margin-top:20px;">
-      Não encontrou o que queria? Dê uma sugestão! +1 (236) 602-5009
-    </p>`;
-  }
+function search() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    let found = false;
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        const name = card.querySelector('h3').innerText.toLowerCase();
+        if(name.includes(query)) {
+            card.style.display = 'block';
+            found = true;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    document.getElementById('notFound').style.display = found ? 'none' : 'block';
 }
 </script>
 
